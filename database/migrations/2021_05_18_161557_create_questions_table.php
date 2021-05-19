@@ -16,6 +16,7 @@ class CreateQuestionsTable extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
+            $table->string('title');
             $table->longText('body');
             $table->string('image')->nullable();
             $table->mediumInteger('points')->default(0);

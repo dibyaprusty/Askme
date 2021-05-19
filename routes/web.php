@@ -17,8 +17,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
 
 Route::get('/help', function(){ 
 	return view('help');
 })->name('help');
+
+//Routes for questions.
+
+//show all question
+Route::get('/questions','QuestionsController@index')->middleware('auth')->name('allQuestion');
+
+//shows a single question
+Route::get('/questions/{question}','QuestionsController@show')
+->middleware('auth')
+->name('singleQuestion');
