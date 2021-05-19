@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Question;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $questions= Question::take(4)->latest()->get();
+        //$questions= Question::paginate(2);
+        return view('home',[
+            'questions' => $questions
+        ]);
     }
 }

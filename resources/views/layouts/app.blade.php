@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm mt-2">
             <div class="container">
 
                 <!-- If authenticated Logo will fetch home page else index page -->
@@ -90,5 +90,12 @@
             @yield('content')
         </main>
     </div>
+
+    <footer class="page-footer font-small blue pt-4">
+        <div class="footer-copyright text-center py-3">© 2021 Copyright:
+            <a href="https://www.mindfiresolutions.com/"> Mindfire Solutions</a>
+        </div>
+    </footer>
+
 </body>
 </html>

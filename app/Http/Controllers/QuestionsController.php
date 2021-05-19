@@ -51,7 +51,7 @@ class QuestionsController extends Controller
      */
     public function show(Question $question)
     {
-        return view('questionsSingle',[
+        return view('questions_single',[
             'questions' => $question
         ]);
     }

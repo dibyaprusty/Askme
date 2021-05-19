@@ -26,9 +26,9 @@ Route::get('/help', function(){
 //Routes for questions.
 
 //show all question
-Route::get('/questions','QuestionsController@index')->middleware('auth')->name('allQuestion');
+Route::get('/questions','QuestionsController@index')->middleware('auth')->name('all_question');
 
 //shows a single question
 Route::get('/questions/{question}','QuestionsController@show')
 ->middleware('auth')
-->name('singleQuestion');
+->name('single_question');
