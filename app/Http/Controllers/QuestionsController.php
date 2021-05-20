@@ -1,5 +1,12 @@
 <?php
-
+/*
+|--------------------------------------------------------------------------
+| QuestionsController
+|--------------------------------------------------------------------------
+|
+| controller responsible for question related operations.
+|
+*/
 namespace App\Http\Controllers;
 
 use App\Question;

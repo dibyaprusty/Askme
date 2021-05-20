@@ -1,4 +1,12 @@
-@extends('layout')
+<!--
+|--------------------------------------------------------------------------
+| welcome.blade.php
+|--------------------------------------------------------------------------
+|
+| welcome/index page of the application.
+|
+-->
+@extends('layouts.layout')
 
 
 @section('content')
@@ -6,6 +14,9 @@
 <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
+
+                   <!-- different navbar options for guest and authenticated users  -->
+
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                         <a href="{{route('help')}}">Help</a>
@@ -19,6 +30,9 @@
                     @endauth
                 </div>
             @endif
+
+
+            <!-- page contents -->
 
             <div class="content">
                 <div class="title m-b-md">

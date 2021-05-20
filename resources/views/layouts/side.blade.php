@@ -1,3 +1,11 @@
+<!--
+|--------------------------------------------------------------------------
+| side.blade.php
+|--------------------------------------------------------------------------
+|
+| Sidebar with all the options.
+| 
+-->
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-2">

@@ -1,3 +1,12 @@
+<!--
+|--------------------------------------------------------------------------
+| layout.blade.php
+|--------------------------------------------------------------------------
+|
+| layout containing bootstarp, js and css link for welcome page.
+| 
+|
+-->
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>

@@ -11,14 +11,17 @@
 |
 */
 
+//index page
 Route::get('/', function () {
     return view('welcome');
 })->name('index');
 
 Auth::routes();
 
+//home page
 Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
 
+//help page
 Route::get('/help', function(){ 
 	return view('help');
 })->name('help');

@@ -1,3 +1,11 @@
+<!--
+|--------------------------------------------------------------------------
+| questions.blade.php
+|--------------------------------------------------------------------------
+|
+| Page responsible to show all the questions published.
+|
+-->
 @extends('layouts.app')
 
 
@@ -6,6 +14,9 @@
     <div class="col-sm-9">
         <h2>All Questions</h2>
         </br>
+
+        <!-- adding questions  -->
+
         @foreach($questions as $question)
             @include('layouts.question_template')
         @endforeach
