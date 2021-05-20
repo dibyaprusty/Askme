@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $questions= Question::take(4)->latest()->get();
+        $questions= Question::take(3)->latest()->get();
         //$questions= Question::paginate(2);
         return view('home',[
             'questions' => $questions
