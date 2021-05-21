@@ -8,7 +8,7 @@
 -->
     <div class="border p-2 bg-white">
         <h2>{{$question->title}}</h2>
-        <p>{{$question->body}} <a href="{{ route('single_question',$question->id) }}">learn more..</a></p> 
+        <p>{!!$question->body!!} <a href="{{ route('single_question',$question->id) }}">learn more..</a></p> 
         
         <!-- updated time in readable form -->
 

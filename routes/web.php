@@ -31,7 +31,20 @@ Route::get('/help', function(){
 //show all question
 Route::get('/questions','QuestionsController@index')->middleware('auth')->name('all_question');
 
+//store the question
+Route::post('questions','QuestionsController@store')
+->middleware('auth')
+->name('store_question');
+
+//create a post
+Route::get('/questions/create','QuestionsController@create')
+->middleware('auth')
+->name('create_question');
+
 //shows a single question
 Route::get('/questions/{question}','QuestionsController@show')
 ->middleware('auth')
 ->name('single_question');
+
+//ckeditor image upload
+Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload');

@@ -23,7 +23,7 @@ class HomeController extends Controller
     public function index()
     {
         //selects 3 latest questions.
-        $questions= Question::take(3)->latest()->get();
+        $questions= Question::take(5)->latest()->get();
         //$questions= Question::paginate(2);
         return view('home',[
             'questions' => $questions

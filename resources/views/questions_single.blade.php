@@ -16,7 +16,7 @@
 
         <div class="border p-2 bg-white">
                 <h2>{{$questions->title}}</h2>
-                <p>{{$questions->body}} </p>
+                <p>{!!$questions->body!!} </p>
 
                 <!-- show the date in human readable format -->
 

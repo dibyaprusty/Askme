@@ -36,7 +36,7 @@ class QuestionsController extends Controller
      */
     public function create()
     {
-        //
+        return view('create_question');
     }
 
     /**
@@ -47,7 +47,20 @@ class QuestionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'title'=>['required','min:3','max:250'],
+            'body'=>['required'],
+            'tag'=>['required']
+        ]);
+        // dump(request()->all());
+        $question= new question();
+        $question->user_id=auth()->id();
+        $question->title= request('title');
+        $question->body= request('body');
+        $question->save();
+
+        return redirect('/questions');
+    
     }
 
     /**

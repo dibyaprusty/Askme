@@ -23,7 +23,7 @@
           <a class="nav-link {{ Request::path() === 'profile' ? 'active' : ''}}" href="{{url('/tags')}}">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Request::path() === 'ask' ? 'active' : ''}}" href="{{url('/ask')}}">Ask a question</a>
+          <a class="nav-link {{ Request::is('*create')? 'active' : ''}}" href="{{route('create_question')}}">Ask a question</a>
         </li>
       </ul>
       <hr class="d-sm-none">
