@@ -10,6 +10,7 @@
 namespace App\Http\Controllers;
 
 use App\Question;
+use App\Answer;
 use Illuminate\Http\Request;
 
 class QuestionsController extends Controller
@@ -69,10 +70,14 @@ class QuestionsController extends Controller
      * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function show(Question $question)
+    public function show($question)
     {
+        $questions=Question::findOrFail($question);
+        $answers= Answer::where('question_id','=',$question)->get();
+        //return($answers);
         return view('questions_single',[
-            'questions' => $question
+            'questions' => $questions,
+            'answers' => $answers
         ]);
     }
 

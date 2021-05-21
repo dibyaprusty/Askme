@@ -48,3 +48,8 @@ Route::get('/questions/{question}','QuestionsController@show')
 
 //ckeditor image upload
 Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload');
+
+//store the answer
+Route::post('answers','AnswersController@store')
+->middleware('auth')
+->name('store_answer');
