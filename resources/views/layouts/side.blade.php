@@ -20,6 +20,9 @@
           <a class="nav-link {{ Request::path() === 'tags' ? 'active' : ''}}" href="{{url('/tags')}}">Tags</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link {{ Request::path() === 'activity' ? 'active' : ''}}" href="{{route('activity')}}">Activity</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link {{ Request::path() === 'profile' ? 'active' : ''}}" href="{{url('/tags')}}">Profile</a>
         </li>
         <li class="nav-item">

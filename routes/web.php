@@ -53,3 +53,8 @@ Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload'
 Route::post('answers','AnswersController@store')
 ->middleware('auth')
 ->name('store_answer');
+
+//activity
+Route::get('/activity','ActivityController@activity')
+->middleware('auth')
+->name('activity');
