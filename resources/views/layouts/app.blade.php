@@ -74,10 +74,15 @@
                             </li>
                         @else
 
-                            <!-- <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                            </form> -->
+                        
+                            <form class="form-inline">
+                                <input class="form-control mr-sm-2 search-input" type="search" placeholder="search" name="search" id="search">
+                                <button class="btn btn-search my-2 my-sm-0 " type="submit">
+                                <i class="fas fa-search"></i>
+                                </button>
+                            </form>
+                            
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

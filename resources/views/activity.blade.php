@@ -38,11 +38,12 @@
                 </div>
 
                 <div class="col-md-10 p-2 bg-white">
-                    <a href="{{ route('single_question',$question->id) }}"><h2>{{$question->title}}</h2></a>
+                    <a href="{{ route('single_question',$question->id) }}"><h4>{{$question->title}}</h4></a>
                     
                     <!-- updated time in readable form -->
             
-                    <small>Updated : {{$question->updated_at->diffForHumans()}}</small>           
+                    <small>Updated : {{$question->updated_at->diffForHumans()}}</small> 
+                    <div style="float:right"><i class="fas fa-edit p-2"></i><i class="fas fa-trash p-2"></i></div>          
                 </div>
             </div>
             @endforeach
@@ -65,11 +66,19 @@
                 </div>
 
                 <div class="col-md-10 p-2 bg-white">
-                    <a href="{{ route('single_question',$question->id) }}"><h2>{{$question->title}}</h2></a>
-                    <p>Answer: {{$answer->body}}</p>
+                    
+                    <!-- Find the question id and title for current answer -->
+                    @php
+                        $question_info= App\Question::select('title','id')->where('id','=',$answer->question_id)->first();
+                    @endphp
+
+                    <a href="{{ route('single_question',$question_info->id) }}"><h4>{{$question_info->title}}?</h4></a>
+                    <p>Answer: {!!$answer->body!!}</p>
+
                     <!-- updated time in readable form -->
             
-                    <small>Updated : {{$answer->updated_at->diffForHumans()}}</small>           
+                    <small>Updated : {{$answer->updated_at->diffForHumans()}}</small>  
+                    <div style="float:right"><i class="fas fa-edit p-2"></i><i class="fas fa-trash p-2"></i></div>         
                 </div>
             </div>
         @endforeach

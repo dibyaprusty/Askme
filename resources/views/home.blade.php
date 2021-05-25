@@ -33,7 +33,7 @@
             <div class="col-sm-4  p-4 ">
                 <div class="border border-secondary text-white bg-primary font-weight-bold rounded p-2">
                     <div class="row justify-content-sm-center display-3">{{$my_points}}</div>
-                    <div class="row justify-content-sm-center">COINS<i class="fas fa-coins fa-2x"></i></div>
+                    <div class="row justify-content-sm-center">POINTS<i class="fas fa-coins fa-2x"></i></div>
                 </div>
             </div>
             
@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="col-md-10 p-2 bg-white">
-                    <a href="{{ route('single_question',$question->id) }}"><h2>{{$question->title}}</h2></a>
+                    <a href="{{ route('single_question',$question->id) }}"><h4>{{$question->title}}</h4></a>
                     
                     <!-- updated time in readable form -->
             

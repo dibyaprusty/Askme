@@ -1,5 +1,12 @@
 <?php
-
+/*
+|--------------------------------------------------------------------------
+| AnswersController
+|--------------------------------------------------------------------------
+|
+| controller responsible for answer related queries.
+|
+*/
 namespace App\Http\Controllers;
 
 use App\Answer;
@@ -14,7 +21,7 @@ class AnswersController extends Controller
      */
     public function index()
     {
-        return("hello");
+        //
     }
 
     /**

@@ -1,5 +1,12 @@
 <?php
-
+/*
+|--------------------------------------------------------------------------
+| CKEditorController
+|--------------------------------------------------------------------------
+|
+| controller responsible for CKEditor.
+|
+*/
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;

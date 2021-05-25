@@ -58,3 +58,9 @@ Route::post('answers','AnswersController@store')
 Route::get('/activity','ActivityController@activity')
 ->middleware('auth')
 ->name('activity');
+
+//profile
+Route::get('/profile/{profile}','ActivityController@profile')
+->middleware('auth')
+->name('profile');
+

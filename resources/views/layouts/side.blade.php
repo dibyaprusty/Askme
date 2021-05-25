@@ -23,7 +23,7 @@
           <a class="nav-link {{ Request::path() === 'activity' ? 'active' : ''}}" href="{{route('activity')}}">Activity</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Request::path() === 'profile' ? 'active' : ''}}" href="{{url('/tags')}}">Profile</a>
+          <a class="nav-link {{ Request::is('*profile*') ? 'active' : ''}}" href="{{route('profile',auth()->id())}}">Profile</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{ Request::is('*create')? 'active' : ''}}" href="{{route('create_question')}}">Ask a question</a>
