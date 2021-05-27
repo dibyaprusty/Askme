@@ -37,7 +37,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-10 p-2 bg-white">
+                <div class="col-md-10 p-2 bg-white text-break">
                     <a href="{{ route('single_question',$question->id) }}"><h4>{{$question->title}}</h4></a>
                     
                     <!-- updated time in readable form -->
@@ -65,7 +65,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-10 p-2 bg-white">
+                <div class="col-md-10 p-2 bg-white text-break">
                     
                     <!-- Find the question id and title for current answer -->
                     @php

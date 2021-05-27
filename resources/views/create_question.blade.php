@@ -30,7 +30,7 @@
               @enderror
             </div>
 
-            <div class="form-group">
+            <div class="form-group text-break">
                 <label for="body">Body</label>
                 <textarea class="form-control " id="body" name="body">{{old('body')}}</textarea>
                 <small>Include all the information someone would need to answer your question</small>

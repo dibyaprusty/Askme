@@ -14,7 +14,7 @@
 
         <!-- adding question -->
 
-        <div class=" p-2 ">
+        <div class=" p-2 text-break ">
                 <h2>{{$questions->title}}?</h2>
                 <p>{!!$questions->body!!} </p>
 
@@ -31,7 +31,7 @@
            
             @foreach($answers as $answer)
                 <div class=" row border p-2 ">
-                        <div class="col-sm-9">
+                        <div class="col-sm-9 text-break">
                             <!-- Fetching the user's name -->
                             @php
                                 $user_info=App\User::select('name')->where('id','=',$answer->user_id)->first();
