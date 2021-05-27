@@ -10,8 +10,14 @@
 
 
 @section('content')
-    @include('layouts.side')
+    @auth
+        @include('layouts.side')
     <div class="col-sm-9">
+    @endauth
+    
+    @guest
+    <div class="col-sm-12">
+    @endguest
         <h2>All Questions</h2>
         </br>
 

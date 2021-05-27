@@ -29,7 +29,7 @@ Route::get('/help', function(){
 //Routes for questions.
 
 //show all question
-Route::get('/questions','QuestionsController@index')->middleware('auth')->name('all_question');
+Route::get('/questions','QuestionsController@index')->name('all_question');
 
 //store the question
 Route::post('questions','QuestionsController@store')
