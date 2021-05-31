@@ -41,10 +41,26 @@ Route::get('/questions/create','QuestionsController@create')
 ->middleware('auth')
 ->name('create_question');
 
+//shows edit question form
+Route::get('/questions/{question}/edit','QuestionsController@edit')
+->middleware('auth')
+->name('edit_question');
+
+//delete a question
+Route::delete('/questions/{question}','QuestionsController@destroy')
+->middleware('auth')
+->name('delete_question');
+
+//update the question in database
+Route::put('/questions/{question}','QuestionsController@update')
+->middleware('auth')
+->name('update_question');
+
 //shows a single question
 Route::get('/questions/{question}','QuestionsController@show')
 ->middleware('auth')
 ->name('single_question');
+
 
 //ckeditor image upload
 Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload');

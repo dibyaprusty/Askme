@@ -75,7 +75,7 @@
                         @else
 
                         
-                            <form class="form-inline">
+                            <form class="form-inline" method="GET" action="{{route('all_question')}}">
                                 <input class="form-control mr-sm-2 search-input" type="search" placeholder="search" name="search" id="search">
                                 <button class="btn btn-search my-2 my-sm-0 " type="submit">
                                 <i class="fas fa-search"></i>
