@@ -24,7 +24,7 @@ class ActivityController extends Controller
     public function activity()
     {
         $my_questions= Question::withCount('answers')->where('user_id','=',auth()->id())->latest()->get();
-        $my_answers= Answer::where('user_id','=',auth()->id())->latest()->get();
+        $my_answers= Answer::with('question')->where('user_id','=',auth()->id())->latest()->get();
         //return($my_answers);
         return view('activity',[
             'questions' => $my_questions,

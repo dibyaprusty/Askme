@@ -24,6 +24,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -113,7 +114,13 @@
             @yield('content')
         </main>
     </div>
-
+    <!-- for CKEditor -->
+    <script>
+            CKEDITOR.replace( 'body', {
+            filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+        </script>
     <footer class="page-footer font-small blue pt-4">
         <div class="footer-copyright text-center py-3">© 2021 Copyright:
             <a href="https://www.mindfiresolutions.com/"> Mindfire Solutions</a>

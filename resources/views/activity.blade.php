@@ -64,7 +64,7 @@
         <h2>Your Answers</h2>
 
         <!-- adding your answers  -->
-
+       
         @foreach($answers as $answer)
             <div class="row border">
 
@@ -78,32 +78,13 @@
                 </div>
 
                 <div class="col-md-9 p-2 bg-white text-break">
-                    <!-- Find the question id and title for current answer -->
-                    @php
-                        $question_info= App\Question::select('title','id')->where('id','=',$answer->question_id)->first();
-                    @endphp
-
-                    <a href="{{ route('single_question',$question_info->id) }}"><h4>{{$question_info->title}}?</h4></a>
+                    
+                    <a href="{{ $answer->question->path() }}"><h4>{{$answer->question->title}}?</h4></a>
                     <p>Answer: {!!$answer->body!!}</p>
 
                     <!-- updated time in readable form -->
             
                     <small>Updated : {{$answer->updated_at->diffForHumans()}}</small>  
-                </div>
-
-                <!-- update needed -->
-
-                <div class="col-md-1 bg-white p-2">
-                    <form method="GET" action="{{route('edit_question',$question->id)}}">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-default"><i class="fas fa-edit p-2"></i></button>
-                    </form>
-                    <form method="POST" action="{{route('delete_question',$question->id)}}">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-default"><i class="fas fa-trash p-2"></i></button>
-                    </form>        
                 </div>
 
             </div>

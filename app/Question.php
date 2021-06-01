@@ -10,4 +10,11 @@ class Question extends Model
     {
         return $this->hasMany(Answer::class);
     }
+     /**
+     * path for single question page
+     */
+    public function path()
+    {
+        return route('single_question',$this);
+    }
 }

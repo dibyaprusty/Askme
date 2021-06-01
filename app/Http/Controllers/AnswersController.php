@@ -50,7 +50,12 @@ class AnswersController extends Controller
         $answer->user_id=auth()->id();
         $answer->question_id= request('question_id');
         $answer->body= request('body');
-        $answer->save();
+        $saved=$answer->save();
+
+        // check if data is successfully stored in db
+        if(!$saved){
+            abort(500, 'Error In Insertion');
+        }
 
         return redirect('/questions/'.request('question_id').'');
 

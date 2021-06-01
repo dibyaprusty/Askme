@@ -55,17 +55,6 @@
 
             <button type="submit" class="btn btn-primary">Publish</button>
           </form>
-          
-        
-        <!-- Scripts for ckeditor -->
-
-        <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-        <script>
-            CKEDITOR.replace( 'body', {
-            filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
-            filebrowserUploadMethod: 'form'
-        });
-        </script>
     </div>
 
   </div>

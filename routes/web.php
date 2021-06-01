@@ -70,12 +70,12 @@ Route::post('answers','AnswersController@store')
 ->middleware('auth')
 ->name('store_answer');
 
-//activity
+//activity page
 Route::get('/activity','ActivityController@activity')
 ->middleware('auth')
 ->name('activity');
 
-//profile
+//profile page
 Route::get('/profile/{profile}','ActivityController@profile')
 ->middleware('auth')
 ->name('profile');

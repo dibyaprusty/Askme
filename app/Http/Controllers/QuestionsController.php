@@ -65,7 +65,7 @@ class QuestionsController extends Controller
         $question->body= request('body');
         $question->save();
 
-        return redirect('/questions');
+        return redirect(route('all_question'));
     
     }
 
@@ -77,7 +77,7 @@ class QuestionsController extends Controller
      */
     public function show(Question $question)
     {
-        $answers= Answer::where('question_id','=',$question->id)->get();
+        $answers= Answer::where('question_id','=',$question->id)->with('user')->latest()->get();
         //return($answers);
         return view('questions_single',[
             'questions' => $question,
@@ -128,13 +128,18 @@ class QuestionsController extends Controller
             $question->user_id=auth()->id();
             $question->title= request('title');
             $question->body= request('body');
-            $question->save();
+            $saved=$question->save();
+
+            // check if data is successfully stored in db
+            if(!$saved){
+                abort(500, 'Error In Insertion');
+            }
     
-            return redirect('/questions/' . $question->id);
+            return redirect(route('single_question',$question->id));
         }
         else
         {
-            return abort(404);
+            return abort(403);
         }
         
     }
@@ -150,7 +155,11 @@ class QuestionsController extends Controller
         if(auth()->id() == $question->user_id)
         {
             Answer::where('question_id','=',$question->id)->delete();
-            $question->delete();
+            $deleted=$question->delete();
+             // check if data is successfully stored in db
+             if(!$deleted){
+                abort(500, 'Error In Deletion');
+            }
             return redirect(route('activity'));
         }
         else
