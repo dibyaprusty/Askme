@@ -22,8 +22,12 @@ class QuestionsController extends Controller
      */
     public function index()
     {
-        $questions= Question::latest()->get();
-        //$questions= Question::paginate(2);
+        // checking for search query
+
+        $questions= Question::latest()
+        ->where('title','like','%'.request('search').'%')
+        ->get();
+        
         return view('question',[
             'questions' => $questions
         ]);
@@ -48,19 +52,20 @@ class QuestionsController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
+        $validated=request()->validate([
             'title'=>['required','min:3','max:250'],
             'body'=>['required'],
             'tag'=>['required']
         ]);
-        // dump(request()->all());
+        //return $validated;
+
         $question= new question();
         $question->user_id=auth()->id();
         $question->title= request('title');
         $question->body= request('body');
         $question->save();
 
-        return redirect('/questions');
+        return redirect(route('all_question'));
     
     }
 
@@ -70,13 +75,12 @@ class QuestionsController extends Controller
      * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function show($question)
+    public function show(Question $question)
     {
-        $questions=Question::findOrFail($question);
-        $answers= Answer::where('question_id','=',$question)->get();
+        $answers= Answer::where('question_id','=',$question->id)->with('user')->latest()->get();
         //return($answers);
         return view('questions_single',[
-            'questions' => $questions,
+            'questions' => $question,
             'answers' => $answers
         ]);
     }
@@ -89,7 +93,19 @@ class QuestionsController extends Controller
      */
     public function edit(Question $question)
     {
-        //
+        //check edit request is created by the creator or not.
+
+        if(auth()->id() == $question->user_id)
+        {
+            return view('edit_question',[
+                'question' => $question
+            ]);
+        }
+        else
+        {
+            return abort(404);
+        }
+        
     }
 
     /**
@@ -101,7 +117,31 @@ class QuestionsController extends Controller
      */
     public function update(Request $request, Question $question)
     {
-        //
+        if(auth()->id() == $question->user_id)
+        {
+            request()->validate([
+                'title'=>['required','min:3','max:250'],
+                'body'=>['required'],
+                'tag'=>['required']
+            ]);
+            // dump(request()->all());
+            $question->user_id=auth()->id();
+            $question->title= request('title');
+            $question->body= request('body');
+            $saved=$question->save();
+
+            // check if data is successfully stored in db
+            if(!$saved){
+                abort(500, 'Error In Insertion');
+            }
+    
+            return redirect(route('single_question',$question->id));
+        }
+        else
+        {
+            return abort(403);
+        }
+        
     }
 
     /**
@@ -112,6 +152,19 @@ class QuestionsController extends Controller
      */
     public function destroy(Question $question)
     {
-        //
+        if(auth()->id() == $question->user_id)
+        {
+            Answer::where('question_id','=',$question->id)->delete();
+            $deleted=$question->delete();
+             // check if data is successfully stored in db
+             if(!$deleted){
+                abort(500, 'Error In Deletion');
+            }
+            return redirect(route('activity'));
+        }
+        else
+        {
+            return abort(404);
+        }   
     }
 }

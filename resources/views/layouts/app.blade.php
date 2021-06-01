@@ -24,6 +24,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -75,7 +76,7 @@
                         @else
 
                         
-                            <form class="form-inline">
+                            <form class="form-inline" method="GET" action="{{route('all_question')}}">
                                 <input class="form-control mr-sm-2 search-input" type="search" placeholder="search" name="search" id="search">
                                 <button class="btn btn-search my-2 my-sm-0 " type="submit">
                                 <i class="fas fa-search"></i>
@@ -113,7 +114,13 @@
             @yield('content')
         </main>
     </div>
-
+    <!-- for CKEditor -->
+    <script>
+            CKEDITOR.replace( 'body', {
+            filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+        </script>
     <footer class="page-footer font-small blue pt-4">
         <div class="footer-copyright text-center py-3">© 2021 Copyright:
             <a href="https://www.mindfiresolutions.com/"> Mindfire Solutions</a>

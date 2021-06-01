@@ -24,12 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //selects 3 latest questions.
-        $questions= Question::take(5)->latest()->get();
+        //selects 5 latest questions.
+        $questions= Question::withCount('answers')->take(5)->latest()->get();
         $my_questions= Question::where('user_id','=',auth()->id())->get();
         $my_answers= Answer::where('user_id','=',auth()->id())->get();
         $my_points= User::find(auth()->id())->points;
-        //return($my_points);
+        //return($questions);
         //$questions= Question::paginate(2);
         return view('home',[
             'questions' => $questions,

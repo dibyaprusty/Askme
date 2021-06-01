@@ -60,7 +60,7 @@
                         <small>Answers</small>
                     </div>
                     <div class="row justify-content-sm-center">
-                        0
+                        {{$question->answers_count}}
                     </div>
                 </div>
 
