@@ -18,7 +18,7 @@
                    <!-- different navbar options for guest and authenticated users  -->
 
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{route('home')}}">Home</a>
                         <a href="{{route('help')}}">Help</a>
                         <a href="{{route('all_question')}}">Questions</a>
                     @else
