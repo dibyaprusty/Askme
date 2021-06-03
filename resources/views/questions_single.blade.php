@@ -32,7 +32,7 @@
             @foreach($answers as $answer)
                 <div class=" row border p-2 ">
                         <div class="col-sm-9 text-break">
-                            <small>Answer by: <a href="{{$answer->user->path()}}">{{$answer->user->name}}</a> </small></br>
+                            <small>Answer by: <a href="{{$answer->user->path}}">{{$answer->user->name}}</a> </small></br>
                             <p>{!!$answer->body!!} </p>
                         </div>  
                         <div class="col-sm-3">

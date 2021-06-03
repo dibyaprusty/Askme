@@ -28,10 +28,15 @@ class QuestionsController extends Controller
         ->where('title','like','%'.request('search').'%')
         ->get();
         
+        //for get
+        //how to send in a var.
         return view('question',[
             'questions' => $questions
         ]);
-
+        
+        //for post
+        // $response=array('data'=>$data);
+        // echo json_encode($response);
     }
 
     /**

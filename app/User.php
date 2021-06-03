@@ -44,4 +44,11 @@ class User extends Authenticatable
     {
         return route('profile',$this);
     }
+    /**
+     * setting an accessor for path.
+     */
+    public function getPathAttribute()
+    {
+        return route('profile',$this);
+    }
 }
