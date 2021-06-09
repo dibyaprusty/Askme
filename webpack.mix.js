@@ -17,4 +17,5 @@ mix.js('resources/asset/js/app.js', 'public/js')
     .postCss('resources/asset/css/login.css', 'public/css')
     .postCss('resources/asset/css/profile.css', 'public/css')
     .postCss('resources/asset/css/layout.css', 'public/css')
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css')
+    .version();
