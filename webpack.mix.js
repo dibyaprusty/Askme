@@ -14,6 +14,7 @@ const mix = require('laravel-mix');
 mix.js('resources/asset/js/app.js', 'public/js')
     .js('resources/asset/js/bootstrap.js', 'public/js')
     .js('resources/asset/js/ck.js', 'public/js')
+    .js('resources/asset/js/jquery-3.6.0.js', 'public/js')
     .postCss('resources/asset/css/login.css', 'public/css')
     .postCss('resources/asset/css/profile.css', 'public/css')
     .postCss('resources/asset/css/layout.css', 'public/css')

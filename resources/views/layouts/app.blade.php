@@ -23,9 +23,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    <script src="{{ asset('js/jquery-3.6.0.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- <script src="{{ asset('js/ck.js') }}" defer></script> -->
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -115,6 +117,7 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ asset('js/main.js') }}" defer></script>
     <!-- for CKEditor -->
     <script>
             CKEDITOR.replace( 'body', {

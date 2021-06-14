@@ -12,7 +12,7 @@
 
 @section('content')
     @include('layouts.side')
-    <div class="col-sm-9">
+    <div class="col-sm-9 m-2" id="home_div">
         <h2>User Statistics</h2>
        
         <div class="row">

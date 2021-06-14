@@ -14,7 +14,8 @@
           <a class="nav-link {{ Request::path() === 'home' ? 'active' : ''}}" href="{{ route('home') }}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Request::path() === 'questions' ? 'active' : ''}}" href="{{ route('all_question') }}">Questions</a>
+          <button id="ques" class="btn btn-primary btn-block" onclick="question(this.id)"> Questions</button>
+          <!-- <a class="nav-link {{ Request::path() === 'questions' ? 'active' : ''}}" href="{{ route('all_question') }}">Questions</a> -->
         </li>
         <li class="nav-item">
           <a class="nav-link {{ Request::path() === 'tags' ? 'active' : ''}}" href="{{url('/tags')}}">Tags</a>

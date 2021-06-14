@@ -16,7 +16,7 @@
     @endauth
     
     @guest
-    <div class="col-sm-12">
+    <div class="col-sm-12" id="question_div">
     @endguest
         <h2>All Questions</h2>
         </br>

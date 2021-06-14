@@ -5,5 +5,6 @@
     "/css/profile.css": "/css/profile.css",
     "/css/layout.css": "/css/layout.css",
     "/js/bootstrap.js": "/js/bootstrap.js",
-    "/js/ck.js": "/js/ck.js"
+    "/js/ck.js": "/js/ck.js",
+    "/js/jquery-3.6.0.js": "/js/jquery-3.6.0.js"
 }
