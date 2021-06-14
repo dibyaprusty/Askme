@@ -25,9 +25,9 @@ class QuestionsController extends Controller
         // checking for search query
 
         $questions= Question::latest()
-        ->where('title','like','%'.request('search').'%')
-        ->get();
+        ->where('title','like','%'.request('search').'%')->paginate(4);
         
+        //return ($questions);
         //for get
         //how to send in a var.
         return view('question',[
@@ -83,6 +83,7 @@ class QuestionsController extends Controller
     public function show(Question $question)
     {
         $answers= Answer::where('question_id','=',$question->id)->with('user')->latest()->get();
+        
         //return($answers);
         return view('questions_single',[
             'questions' => $question,
