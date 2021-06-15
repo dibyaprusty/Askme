@@ -23,6 +23,7 @@
                 <h2>All Questions</h2> 
             </div>
             <div class="col-sm-6">
+                <!-- pagination -->
                 <div class="d-flex justify-content-end">{{$questions}}</div>
             </div>
         </div>
