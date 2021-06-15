@@ -12,6 +12,8 @@ namespace App\Http\Controllers;
 use App\Question;
 use App\Answer;
 use Illuminate\Http\Request;
+use App\Exceptions\InsertionError;
+use App\Exceptions\QuestionLoadingException;
 
 class QuestionsController extends Controller
 {
@@ -23,10 +25,14 @@ class QuestionsController extends Controller
     public function index()
     {
         // checking for search query
-
-        $questions= Question::latest()
-        ->where('title','like','%'.request('search').'%')
-        ->get();
+        try{
+            $questions= Question::latest()
+            ->where('title','like','%'.request('search').'%')
+            ->get();
+        }
+        catch(Exception $exception){
+            throw new QuestionLoadingException();
+        }
         
         //for get
         //how to send in a var.
@@ -63,13 +69,17 @@ class QuestionsController extends Controller
             'tag'=>['required']
         ]);
         //return $validated;
-
-        $question= new question();
-        $question->user_id=auth()->id();
-        $question->title= request('title');
-        $question->body= request('body');
-        $question->save();
-
+        try{
+            $question= new question();
+            $question->user_id=auth()->id();
+            $question->title= request('title');
+            $question->body= request('body');
+            $question->save();
+        }
+        catch(Exception $exception){
+            throw new InsertionError();
+        }
+        
         return redirect(route('all_question'));
     
     }

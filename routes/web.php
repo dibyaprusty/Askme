@@ -19,7 +19,7 @@ Route::get('/', function () {
 Auth::routes();
 
 //home page
-Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
+Route::get('/home', 'HomeController@index')->middleware('super')->name('home');
 
 //help page
 Route::get('/help', function(){ 
@@ -33,32 +33,32 @@ Route::get('/questions','QuestionsController@index')->name('all_question');
 
 //store the question
 Route::post('questions','QuestionsController@store')
-->middleware('auth')
+->middleware('super')
 ->name('store_question');
 
 //create a post
 Route::get('/questions/create','QuestionsController@create')
-->middleware('auth')
+->middleware('super')
 ->name('create_question');
 
 //shows edit question form
 Route::get('/questions/{question}/edit','QuestionsController@edit')
-->middleware('auth')
+->middleware('super')
 ->name('edit_question');
 
 //delete a question
 Route::delete('/questions/{question}','QuestionsController@destroy')
-->middleware('auth')
+->middleware('super')
 ->name('delete_question');
 
 //update the question in database
 Route::put('/questions/{question}','QuestionsController@update')
-->middleware('auth')
+->middleware('super')
 ->name('update_question');
 
 //shows a single question
 Route::get('/questions/{question}','QuestionsController@show')
-->middleware('auth')
+->middleware('super')
 ->name('single_question');
 
 
@@ -67,16 +67,16 @@ Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload'
 
 //store the answer
 Route::post('answers','AnswersController@store')
-->middleware('auth')
+->middleware('super')
 ->name('store_answer');
 
 //activity page
 Route::get('/activity','ActivityController@activity')
-->middleware('auth')
+->middleware('super')
 ->name('activity');
 
 //profile page
 Route::get('/profile/{profile}','ActivityController@profile')
-->middleware('auth')
+->middleware('super')
 ->name('profile');
 
