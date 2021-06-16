@@ -22,6 +22,6 @@ class PageNotFound extends Exception
      */
     public function render()
     {
-        return view(errors.page_not_found);
+        return view('errors.page_not_found');
     }
 }
