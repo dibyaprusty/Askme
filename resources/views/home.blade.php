@@ -12,9 +12,21 @@
 
 @section('content')
     @include('layouts.side')
+
+    <div class="col-sm-9 m-2" id="paginate">
+        <div class="btn-group" id="page_button">
+        </div>
+
+        </br>
+        </br>
+
+         <div id="load-questions"></div>
+
+    </div> 
+
     <div class="col-sm-9 m-2" id="home_div">
         <h2>User Statistics</h2>
-       
+
         <div class="row">
             <div class="col-sm-4  p-4 ">
                 <div class="border border-secondary text-white bg-danger font-weight-bold rounded p-2">
